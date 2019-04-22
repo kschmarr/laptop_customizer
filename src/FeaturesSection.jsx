@@ -1,6 +1,8 @@
 import React, { Component } from "react";
+import FeaturesTitle from "./FeaturesTitle";
+import FeaturesContent from "./FeaturesContent";
 
-class Features extends Component {
+class FeaturesSection extends Component {
   render() {
     const features = Object.keys(this.props.features).map(key => {
       const options = this.props.features[key].map((item, index) => {
@@ -35,11 +37,15 @@ class Features extends Component {
     });
     return (
       <section className="main__form">
-        <h3>TECH SPECS AND CUSTOMIZATIONS</h3>
-        {features}
+        <FeaturesTitle />
+        <FeaturesContent
+          features={this.props.features}
+          selected={this.props.selected}
+          updateFeature={this.props.updateFeature}
+        />
       </section>
     );
   }
 }
 
-export default Features;
+export default FeaturesSection;

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Features from "./Features";
+import FeaturesSection from "./FeaturesSection";
 import Summary from "./Summary";
 
 class Main extends Component {
@@ -7,7 +7,7 @@ class Main extends Component {
     const { selected } = this.props;
     return (
       <main>
-        <Features
+        <FeaturesSection
           features={this.props.features}
           selected={selected}
           updateFeature={this.props.updateFeature}
