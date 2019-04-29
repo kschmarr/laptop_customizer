@@ -11,7 +11,7 @@ class Summary extends Component {
       <section className="main__summary">
         <SummaryTitle />
         <SummaryContent selected={selected} />
-        <Total selected={this.props.selected} />
+        <Total selected={selected} />
       </section>
     );
   }

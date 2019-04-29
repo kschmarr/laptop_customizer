@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import FeatureListItem from "./FeatureListItem";
 
 class FeaturesContent extends Component {
   render() {
@@ -10,19 +11,14 @@ class FeaturesContent extends Component {
             : "";
         const featureClass = "feature__option " + selectedClass;
         return (
-          <li key={index} className="feature__item">
-            <div
-              className={featureClass}
-              onClick={e => this.props.updateFeature(key, item)}
-            >
-              {item.name}(
-              {new Intl.NumberFormat("en-US", {
-                style: "currency",
-                currency: "USD"
-              }).format(item.cost)}
-              )
-            </div>
-          </li>
+          <FeatureListItem
+            item={item}
+            featureClass={featureClass}
+            index={index}
+            key={index}
+            parentKey={key}
+            updateFeature={this.props.updateFeature}
+          />
         );
       });
 
@@ -33,7 +29,7 @@ class FeaturesContent extends Component {
         </div>
       );
     });
-    return <>{features}</>;
+    return <div>{features}</div>;
   }
 }
 
